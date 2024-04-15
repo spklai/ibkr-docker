@@ -61,6 +61,10 @@ TWS_MAJOR_VERSION=$(ls ~/Jts/ibgateway/.)
 # so we need to supply it here. The rest of the arguments can be read from
 # the config.ini file.
 
+# start tailscale services for private network
+/app/tailscaled --state=/var/lib/tailscale/tailscaled.state --socket=/var/run/tailscale/tailscaled.sock &
+/app/tailscale up --authkey=${TAILSCALE_AUTHKEY} --hostname=fly-app
+
 exec /opt/ibc/scripts/ibcstart.sh "${TWS_MAJOR_VERSION}" $command \
     "--user=${USERNAME:-}" \
     "--pw=${PASSWORD:-}" \
