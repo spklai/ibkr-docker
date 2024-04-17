@@ -63,7 +63,7 @@ TWS_MAJOR_VERSION=$(ls ~/Jts/ibgateway/.)
 
 # start tailscale services for private network
 /app/tailscaled --state=/var/lib/tailscale/tailscaled.state --socket=/var/run/tailscale/tailscaled.sock &
-/app/tailscale up --authkey=${TAILSCALE_AUTHKEY} --hostname=fly-app
+/app/tailscale up --authkey=${TAILSCALE_AUTHKEY} --hostname=ibgw
 
 exec /opt/ibc/scripts/ibcstart.sh "${TWS_MAJOR_VERSION}" $command \
     "--user=${USERNAME:-}" \

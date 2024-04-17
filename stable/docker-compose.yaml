@@ -1,7 +1,7 @@
-version: '3.4'
 services:
   ib-gateway:
-    build: ./stable
+    build: .
+    # image: ghcr.io/extrange/ibkr
     ports:
       - '127.0.0.1:6080:6080' # noVNC browser access
       - '127.0.0.1:8888:8888' # API access
